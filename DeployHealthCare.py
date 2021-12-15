@@ -55,7 +55,7 @@ print(nonce)
 
 # Submit the transaction that deploys the contract
 build_txn = HealthCare.constructor().buildTransaction({
-'chainId': 3,
+'chainId': 4,
 'gas': 1400000,
 'gasPrice': w3.toWei('40', 'gwei'),
 'nonce': nonce,
@@ -91,7 +91,7 @@ health_care = W3.eth.contract(
 print(health_care.functions.profession().call())
 nonce = W3.eth.getTransactionCount(_address)
 build_txn = health_care.functions.setProfession('I am a Medical Doctor by Profession with an ID - 10556535').buildTransaction({
-  'chainId': 3,
+  'chainId': 4,
   'gas': 1400000,
   'gasPrice': w3.toWei('40', 'gwei'),
   'nonce': nonce,
