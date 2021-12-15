@@ -18,7 +18,7 @@ with open("HealthCare.sol") as contract:
 with open(".pk") as pkfile:
  privateKey=pkfile.read()
 
-#Get Infura ID fo deploying on an Ethereum Testnet(Ropsten)
+#Get Infura ID fo deploying on an Ethereum Testnet(Rinkeby)
 with open(".infura") as infurafile:
  infuraKey=infurafile.read()
 
@@ -46,7 +46,7 @@ compiled_sol = compile_standard({
 })
 bytecode = compiled_sol['contracts']['HealthCare.sol']['HealthCare']['evm']['bytecode']['object']
 abi = json.loads(compiled_sol['contracts']['HealthCare.sol']['HealthCare']['metadata'])['output']['abi']
-W3 = Web3(WebsocketProvider('wss://ropsten.infura.io/ws/v3/%s'%infuraKey))
+W3 = Web3(WebsocketProvider('wss://rinkeby.infura.io/ws/v3/%s'%infuraKey))
 _account=Account.from_key(privateKey);
 _address=_account.address
 HealthCare = W3.eth.contract(abi=abi, bytecode=bytecode)
