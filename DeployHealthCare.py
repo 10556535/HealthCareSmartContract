@@ -64,7 +64,7 @@ build_txn = HealthCare.constructor().buildTransaction({
 signed_txn = W3.eth.account.sign_transaction(build_txn, private_key=privateKey)
 print(signed_txn)
 
-
+#Deploy smart contract 
 print("Deploying the HealthCare Smart Contract")
 result = W3.eth.sendRawTransaction(signed_txn.rawTransaction)
 print(result)
@@ -83,6 +83,7 @@ if txn_receipt is None:
   print (" {'status': 'failed', 'error': 'timeout'} ")
 print (txn_receipt)
 print("Health Care Smart Contract address is:",txn_receipt.contractAddress)
+#Health Care Smart Contract address is: 0xc943FA5233988B348b70458c23bcDe656d2478d0
 
 health_care = W3.eth.contract(
   address=tx_receipt.contractAddress,
